@@ -202,7 +202,7 @@
       <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[]">
+  <body class="index" data-languages="[&quot;cpp&quot;,&quot;cpp--DeepDive&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,6 +211,10 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="cpp">cpp</a>
+              <a href="#" data-language-name="cpp--DeepDive">cpp--DeepDive</a>
+        </div>
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
@@ -266,27 +270,744 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p><a href="https://github.com/Loki-Astari/ThorsNisse">ThorsNisse</a> is RESTful server framework for C++.<br>
+It is based on Node.js and its family of associated packages. ThorsNisse uses transparently non-blocking <code>std::streams</code> to achieve high throughput and low complexity of development on a single threaded server.</p>
+
+<p>What does <strong>transparently non-blocking:</strong> mean?</p>
+
+<ul>
+<li>To the user of the std::stream it will appear to be standard blocking stream; thus allowing very normal looking C++ code to be written.</li>
+<li>To make the framework efficient any blocking read/write calls transfers control back to the Nisse Framework so that other streams may be processed.</li>
+</ul>
 <h1 id='node-cxx'>Node.Cxx</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h1 id='express'>Express</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h1 id='core'>Core</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h2 id='utility'>Utility</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h2 id='socket'>Socket</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h2 id='service'>Service</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h2 id='sql'>SQL</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h1 id='protocol'>Protocol</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h2 id='simple'>Simple</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-<h2 id='http'>HTTP</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+<p>To simplify development for those that simply want to write HTTP RESTful endpoints the server Node.Cxx is provided to handle all the boilerplate.</p>
+
+<p>Node.Cxx (Lovingly named after Node.js for the inspiration) is a simple HTTP server implemented using the ThorsNisse framework that will dynamically load <a href="#express">Express</a> modules.</p>
+
+<p>The Node.Cxx server takes two flags as arguments on startup:</p>
+<pre class="highlight shell"><code> &gt; Node.cxx <span class="o">[</span>--debug:&lt;port&gt;] <span class="o">[</span>--load:&lt;SharedLib&gt;:&lt;Host&gt;:&lt;Base&gt;:&lt;port&gt;]
+ <span class="c">#</span>
+ <span class="c"># --debug:8081</span>
+ <span class="c">#      Loads the dynamic loader so it listens on port 8081</span>
+ <span class="c">#          To load a libray:</span>
+ <span class="c">#              curl --data '{"action": "Load",   "host": "test.com", "base": "", "port": 8080, "lib": "AddBeer.dylib"}' localhost:8081</span>
+ <span class="c">#          To unload a library:</span>
+ <span class="c">#              curl --data '{"action": "Unload", "host": "test.com", "base": "", "port": 8080}'  localhost:8081</span>
+ <span class="c">#</span>
+ <span class="c">#</span>
+ <span class="c"># --load:AddBeer.dylib:test.com::8080</span>
+ <span class="c">#      Loads the AddBeer.dylib express module.</span>
+ <span class="c">#          And binds it to the root of http://test.com</span>
+ <span class="c">#</span>
+ <span class="c">#          Assume AddBeer defines the end pointes /AddBeer</span>
+ <span class="c">#          When a request to `http://test.com/AddBeer the associated code will be called.</span>
+ <span class="c">#</span>
+ <span class="c"># --load:AddDrink.dylib:test.com:/drinks:8080</span>
+ <span class="c">#      Loads the AddDrink.dylib express module.</span>
+ <span class="c">#          And binds it to http://test.com/drinks</span>
+ <span class="c">#</span>
+ <span class="c">#          Assume AddDrink defines the end pointes /AddDrink</span>
+ <span class="c">#          When a request to `http://test.com/drinks/AddDrink the associated code will be called.</span>
+ <span class="c">#</span>
+ <span class="c">#          Note we did not bind AddDrink to the root of test.com so you need to add the `Base` to</span>
+ <span class="c">#          all routes defined by the library in its code.</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Command Line Flag</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--debug</td>
+<td>Installs the dynamic library loader.<br>This allows shared libraries to be loaded/unloaded at runtime without restarting the server. Useful for building and debugging but should not be used in production.<br><br>As the command to load/unload library is simply a REST call to the specified port; this can be included into your build environment to un-install the old version and install the newly build version allowing a quick turn around for development.</td>
+</tr>
+<tr>
+<td>--load</td>
+<td>Loads a shared library that is linked with <a href="#express">Express</a>.<br>This flag can be used multiple times.<br><br>The express module provides the facility to easily associate code with REST end points.<br><br>This flag uses the same underlying code as the REST call to load a site. So these sites can also be dynamically unloaded if required.</td>
+</tr>
+</tbody></table>
+<h1 id='express'>Express</h1><pre class="highlight cpp tab-cpp"><code><span class="c1">// Must include this header
+</span><span class="cp">#include "ThorsExpress/all.h"
+</span>
+<span class="k">namespace</span> <span class="n">HTTP</span> <span class="o">=</span> <span class="n">ThorsAnvil</span><span class="o">::</span><span class="n">Nisse</span><span class="o">::</span><span class="n">Protocol</span><span class="o">::</span><span class="n">HTTP</span><span class="p">;</span>
+
+<span class="c1">// Must define this function once.
+</span><span class="kt">void</span> <span class="nf">addSite</span><span class="p">(</span><span class="n">HTTP</span><span class="o">::</span><span class="n">Site</span><span class="o">&amp;</span> <span class="n">site</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">site</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"/listBeer"</span><span class="p">,</span> <span class="p">[](</span><span class="n">HTTP</span><span class="o">::</span><span class="n">Request</span><span class="o">&amp;</span> <span class="n">request</span><span class="p">,</span> <span class="n">HTTP</span><span class="o">::</span><span class="n">Response</span><span class="o">&amp;</span> <span class="n">response</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">});</span>
+    <span class="c1">// You can add as many resources to as site as you need.
+</span><span class="p">}</span>
+</code></pre>
+<p>Express is a simple library that allows the definition of simple HTTP site modules that can be loaded/unload dynamically. Though each site object is simple each one can be bound to a different relative paths on a site.</p>
+<h1 id='core'>Core</h1><h2 id='utility'>Utility</h2><pre class="highlight cpp tab-cpp"><code><span class="k">if</span> <span class="p">(</span><span class="n">open</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="n">O_WRONLY</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span>
+        <span class="n">buildErrorMessage</span><span class="p">(</span><span class="s">"MyClass::"</span><span class="p">,</span> <span class="n">__func__</span><span class="p">,</span>
+                          <span class="s">": open: "</span><span class="p">,</span> <span class="n">Utility</span><span class="o">::</span><span class="n">systemErrorMessage</span><span class="p">()));</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight cpp tab-cpp--DeepDive"><code><span class="c1">// Utility.h
+</span><span class="cm">/*
+ * Builds a string for a system error message.
+ * uses `errno` to build the name of the error and the associated message into a string.
+ */</span>
+<span class="kr">inline</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">systemErrorMessage</span><span class="p">();</span>
+
+<span class="cm">/*
+ * Build an error message from a set of parameters.
+ * Slightly more compact than using 'operator&lt;&lt;` very useful for building exception messages.
+ */</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span> <span class="n">Args</span><span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">buildErrorMessage</span><span class="p">(</span><span class="n">Args</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">...</span> <span class="n">args</span><span class="p">);</span>
+</code></pre>
+<p>Provides common utility functions for other packages.
+<dl>
+<dt>NameSpace:</dt><dd>ThorsAnvil::Nisse::Core::Utility</dd>
+<dt>Headers:</dt><dd>ThorsNisseCoreUtility/</dd>
+<dt>Utility.h</dt><dd></p>
+
+<ul>
+<li>std::string systemErrorMessage();</li>
+<li>std::string buildErrorMessage();</li>
+</ul>
+
+<p></dd>
+</dl></p>
+<h2 id='socket'>Socket</h2><pre class="highlight cpp tab-cpp"><code><span class="c1">// Server Side
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">ServerSocket</span>    <span class="n">server</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">DataSocket</span>      <span class="n">connection</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">accept</span><span class="p">();</span>
+        <span class="n">ISocketStream</span>   <span class="n">input</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">request</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">header</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">header</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\r</span><span class="s">"</span><span class="p">)</span>
+        <span class="p">{}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">message</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">line</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">:</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="n">line</span><span class="p">;</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s">"&lt;br&gt;"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">OSocketStream</span>   <span class="n">output</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
+        <span class="n">output</span> <span class="o">&lt;&lt;</span> <span class="s">"HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"Content-Length: "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">11</span> <span class="o">+</span> <span class="n">message</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"It Worked: "</span> <span class="o">&lt;&lt;</span> <span class="n">message</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight cpp tab-cpp--DeepDive"><code><span class="c1">// Socket.h
+</span><span class="k">class</span> <span class="nc">BaseSocket</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">virtual</span> <span class="o">~</span><span class="n">BaseSocket</span><span class="p">();</span>
+
+        <span class="c1">// Moveable but not Copyable
+</span>        <span class="n">BaseSocket</span><span class="p">(</span><span class="n">BaseSocket</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span>               <span class="k">noexcept</span><span class="p">;</span>
+        <span class="n">BaseSocket</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">BaseSocket</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span>    <span class="k">noexcept</span><span class="p">;</span>
+        <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">BaseSocket</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>                <span class="k">noexcept</span><span class="p">;</span>
+
+        <span class="kt">void</span> <span class="n">close</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+ * DataSocket:  Defines a socket that you can read/write too.
+ *              This class should not be directry created. You can get an object
+ *              of this data by creating a `ConnectSocket` or calling accept on
+ *              ServerScoket (See below).
+ */</span>
+<span class="k">class</span> <span class="nc">DataSocket</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseSocket</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">getMessageData</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">alreadyGot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">putMessageData</span><span class="p">(</span><span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">alreadyPut</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="kt">void</span>        <span class="n">putMessageClose</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * ConnectSocket:   Creates a connection to server.
+ */</span>
+<span class="k">class</span> <span class="nc">ConnectSocket</span><span class="o">:</span> <span class="k">public</span> <span class="n">DataSocket</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">ConnectSocket</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="kt">int</span> <span class="n">port</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * ServerSocket:    Creates a ServerSocket that will accept incomming requests.
+ *
+ *                  A blocking call to accept will return a DataSocket for
+ *                  an external connection that has been established.
+ *
+ *                  Non blocking calls should onlt be made if you know there
+ *                  is a connection waiting to be made.
+ */</span>
+<span class="k">class</span> <span class="nc">ServerSocket</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseSocket</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">maxConnectionBacklog</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">ServerSocket</span><span class="p">(</span><span class="kt">int</span> <span class="n">port</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">blocking</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxWaitingConnections</span> <span class="o">=</span> <span class="n">maxConnectionBacklog</span><span class="p">);</span>
+
+        <span class="n">DataSocket</span> <span class="n">accept</span><span class="p">(</span><span class="kt">bool</span> <span class="n">blocking</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * SocketStreamBuffer:  A stream buffer that is used by ISocketStream and OSocketStream
+ */</span>
+<span class="k">class</span> <span class="nc">SocketStreamBuffer</span><span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">streambuf</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">virtual</span> <span class="o">~</span><span class="n">SocketStreamBuffer</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+        <span class="n">SocketStreamBuffer</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
+                           <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">,</span>
+                           <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;&amp;</span> <span class="n">bufData</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">4000</span><span class="p">),</span>
+                           <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentStart</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentEnd</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">);</span>
+        <span class="n">SocketStreamBuffer</span><span class="p">(</span><span class="n">SocketStreamBuffer</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * ISocketStream:       An implementation of std::istream that uses a DataSocket
+ */</span>
+<span class="k">class</span> <span class="nc">ISocketStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">istream</span>
+<span class="p">{</span>
+    <span class="n">SocketStreamBuffer</span> <span class="n">buffer</span><span class="p">;</span>
+
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
+                      <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">,</span>
+                      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;&amp;</span> <span class="n">bufData</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentStart</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentEnd</span><span class="p">);</span>
+        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
+                      <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">);</span>
+        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">);</span>
+        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">ISocketStream</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * ISocketStream:       An implementation of std::ostream that uses a DataSocket
+ */</span>
+<span class="k">class</span> <span class="nc">OSocketStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span>
+<span class="p">{</span>
+    <span class="n">SocketStreamBuffer</span> <span class="n">buffer</span><span class="p">;</span>
+
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">OSocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
+                      <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">);</span>
+        <span class="n">OSocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">);</span>
+        <span class="n">OSocketStream</span><span class="p">(</span><span class="n">OSocketStream</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p>A simple wrapper around BSD sockets so they are easy to use in C++.
+<dl>
+<dt>NameSpace:</dt><dd>ThorsAnvil::Nisse::Core::Socket</dd>
+<dt>Headers:</dt><dd>ThorsNisseCoreSocket/</dd>
+<dt>Socket.h</dt><dd></p>
+
+<ul>
+<li>class BaseSocket</li>
+<li>class DataSocket: public BaseSocket</li>
+<li>class ConnectionSocket: public DataSocket</li>
+<li>class ServerSocket: public BaseSocket</li>
+</ul>
+
+<p></dd>
+<dt>SocketStream.h</dt><dd></p>
+
+<ul>
+<li>class SocketStreamBuffer: public std::streambuf</li>
+<li>class ISocketStream: public std::istream</li>
+<li>class OSocketStream: public std::ostream</li>
+</ul>
+
+<p></dd>
+</dl></p>
+<h2 id='service'>Service</h2><pre class="highlight cpp tab-cpp"><code><span class="k">class</span> <span class="nc">MyHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerSuspendable</span><span class="o">&lt;</span><span class="n">DataSocket</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">eventActivateNonBlocking</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">ISocketStream</span>   <span class="n">input</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">request</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">header</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">header</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\r</span><span class="s">"</span><span class="p">)</span>
+        <span class="p">{}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">message</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">line</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">:</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="n">line</span><span class="p">;</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s">"&lt;br&gt;"</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">OSocketStream</span>   <span class="n">output</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+        <span class="n">output</span> <span class="o">&lt;&lt;</span> <span class="s">"HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"Content-Length: "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">11</span> <span class="o">+</span> <span class="n">message</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"It Worked: "</span> <span class="o">&lt;&lt;</span> <span class="n">message</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Server</span>      <span class="n">server</span><span class="p">;</span>
+    <span class="n">server</span><span class="p">.</span><span class="n">listenOn</span><span class="o">&lt;</span><span class="n">MyHandler</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+    <span class="n">server</span><span class="p">.</span><span class="n">listenOn</span><span class="o">&lt;</span><span class="n">MyHAndler</span><span class="o">&gt;</span><span class="p">(</span><span class="n">ServerConnection</span><span class="p">(</span><span class="mi">8081</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight cpp tab-cpp--DeepDive"><code><span class="cm">/*
+ * If you just want to specify a port to Server::listenOn() this class will default constructor
+ * with an integer. If you need specify the number of waiting connections allowed then use this
+ * object as the parameter to `listenOn().
+ */</span>
+<span class="k">struct</span> <span class="n">ServerConnection</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">ServerConnection</span><span class="p">(</span><span class="kt">int</span> <span class="n">port</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxConnections</span> <span class="o">=</span> <span class="n">ThorsAnvil</span><span class="o">::</span><span class="n">Nisse</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Socket</span><span class="o">::</span><span class="n">ServerSocket</span><span class="o">::</span><span class="n">maxConnectionBacklog</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * A very simplistic server object.
+ * Multiple listeners on different ports can be installed with `listenOn()`.
+ * Multiple timers can be installed with `addTimer()`.
+ * When listernes and timers have been installed start the event lop with `start()`.
+ */</span>
+<span class="k">class</span> <span class="nc">Server</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">Server</span><span class="p">();</span>
+
+        <span class="n">Server</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+        <span class="n">Server</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+
+        <span class="kt">void</span> <span class="n">start</span><span class="p">(</span><span class="kt">double</span> <span class="n">check</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="n">flagShutDown</span><span class="p">();</span>
+
+        <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Handler</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Param</span><span class="o">&gt;</span>
+        <span class="kt">void</span> <span class="n">listenOn</span><span class="p">(</span><span class="n">ServerConnection</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">info</span><span class="p">,</span> <span class="n">Param</span><span class="o">&amp;</span> <span class="n">param</span><span class="p">);</span>
+
+        <span class="kt">void</span> <span class="n">addTimer</span><span class="p">(</span><span class="kt">double</span> <span class="n">timeOut</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;&amp;&amp;</span> <span class="n">action</span><span class="p">);</span>
+
+        <span class="kt">bool</span> <span class="n">isRunning</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">running</span><span class="p">;}</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * HandlerBase:     The base of all handler classes.
+ */</span>
+<span class="k">class</span> <span class="nc">HandlerBase</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">HandlerBase</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">LibSocketId</span> <span class="n">socketId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">,</span> <span class="kt">double</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="o">~</span><span class="n">HandlerBase</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">activateEventHandlers</span><span class="p">(</span><span class="n">LibSocketId</span> <span class="n">sockId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">short</span> <span class="n">eventActivate</span><span class="p">(</span><span class="n">LibSocketId</span> <span class="n">sockId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">virtual</span> <span class="kt">bool</span>  <span class="n">suspendable</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">virtual</span> <span class="kt">void</span>  <span class="n">close</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * A handler based that has the concept of a stream.
+ * It can thus close the connection but not much else.
+ */</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Stream</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">HandlerStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerBase</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">HandlerStream</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">Stream</span><span class="o">&amp;&amp;</span> <span class="n">stream</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">,</span> <span class="kt">double</span> <span class="n">timeout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">void</span>  <span class="n">close</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * For handlers that can't be suspended (note not the same as blocked).
+ * This is a special case that is more for internal use.
+ */</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Stream</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">HandlerNonSuspendable</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerStream</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">using</span> <span class="n">HandlerStream</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&gt;::</span><span class="n">HandlerStream</span><span class="p">;</span>
+        <span class="k">virtual</span> <span class="kt">void</span> <span class="n">suspend</span><span class="p">(</span><span class="kt">short</span><span class="p">)</span> <span class="k">final</span><span class="p">;</span>
+        <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">suspendable</span><span class="p">()</span>  <span class="k">final</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * For handlers that can be suspended.
+ * Most handlers will derive from this class.
+ */</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Stream</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">HandlerSuspendable</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerStream</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">HandlerSuspendable</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">Stream</span><span class="o">&amp;&amp;</span> <span class="n">stream</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">);</span>
+        <span class="n">HandlerSuspendable</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">Stream</span><span class="o">&amp;&amp;</span> <span class="n">stream</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">,</span> <span class="kt">short</span> <span class="n">firstEvent</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">void</span> <span class="n">suspend</span><span class="p">(</span><span class="kt">short</span> <span class="n">type</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">suspendable</span><span class="p">();</span>
+        <span class="k">virtual</span> <span class="kt">short</span> <span class="n">eventActivate</span><span class="p">(</span><span class="n">LibSocketId</span> <span class="n">sockId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">)</span> <span class="k">final</span><span class="p">;</span>
+        <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">eventActivateNonBlocking</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="cm">/*
+ * An internal handler used by the server.
+ * This is used to wait on accepted connections and start the user specified handler.
+ */</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">ActHand</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Param</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">ServerHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerNonSuspendable</span><span class="o">&lt;</span><span class="n">Socket</span><span class="o">::</span><span class="n">ServerSocket</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">ServerHandler</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">Socket</span><span class="o">::</span><span class="n">ServerSocket</span><span class="o">&amp;&amp;</span> <span class="n">so</span><span class="p">,</span> <span class="n">Param</span><span class="o">&amp;</span> <span class="n">param</span><span class="p">);</span>
+        <span class="o">~</span><span class="n">ServerHandler</span><span class="p">();</span>
+        <span class="k">virtual</span> <span class="kt">short</span> <span class="n">eventActivate</span><span class="p">(</span><span class="n">LibSocketId</span> <span class="n">sockId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/*
+ * An internal handler used by the server.
+ * This handler deals with timer events and calls the appropriate user defined code.
+ */</span>
+<span class="k">class</span> <span class="nc">TimerHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerNonSuspendable</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">TimerHandler</span><span class="p">(</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="kt">double</span> <span class="n">timeOut</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;&amp;&amp;</span> <span class="n">action</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">short</span> <span class="n">eventActivate</span><span class="p">(</span><span class="n">LibSocketId</span> <span class="n">sockId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+</code></pre>
+<p>A simple wrapper around libEvent.
+<dl>
+<dt>NameSpace:</dt><dd>ThorsAnvil::Nisse::Core::Service</dd>
+<dt>Headers:</dt><dd>ThorsNisseCoreService/</dd>
+<dt>Server.h</dt><dd></p>
+
+<ul>
+<li>struct ServerConnection</li>
+<li>class Server</li>
+</ul>
+
+<p></dd>
+<dt>Handler.h</dt><dd></p>
+
+<ul>
+<li>class HandlerBase</li>
+<li>class HandlerStream: public HandlerBase</li>
+<li>class HandlerNonSuspendable: public HandlerStream</li>
+<li>class HandlerSuspendable: public HandlerStream</li>
+</ul>
+
+<p></dd>
+<dt>ServerHandlers.h</dt><dd></p>
+
+<ul>
+<li>class ServerHandler: public HandlerNonSuspendable</li>
+<li>class TimerHandler: public HandlerNonSuspendable</li>
+</ul>
+
+<p></dd>
+</dl></p>
+<h2 id='sql'>SQL</h2><pre class="highlight cpp tab-cpp"><code><span class="k">namespace</span> <span class="n">Express</span> <span class="o">=</span> <span class="n">ThorsAnvil</span><span class="o">::</span><span class="n">Nisse</span><span class="o">::</span><span class="n">Protocol</span><span class="o">::</span><span class="n">HTTP</span><span class="p">;</span>
+<span class="k">namespace</span> <span class="n">SQL</span>     <span class="o">=</span> <span class="n">ThorsAnvil</span><span class="o">::</span><span class="n">SQL</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">SQL</span><span class="o">::</span><span class="n">Connection</span> <span class="n">connection</span><span class="p">(</span><span class="s">"mysqlNB://test.com"</span><span class="p">,</span> <span class="s">"test"</span><span class="p">,</span> <span class="s">"testPassword"</span><span class="p">,</span> <span class="s">"test"</span><span class="p">);</span>
+<span class="k">static</span> <span class="n">SQL</span><span class="o">::</span><span class="n">Statement</span>  <span class="n">listBeers</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="s">"SELECT Name, Age FROM Beers"</span><span class="p">);</span>
+
+<span class="k">class</span> <span class="nc">MyListBeerHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerSuspendable</span><span class="o">&lt;</span><span class="n">DataSocket</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">eventActivateNonBlocking</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">ISocketStream</span>   <span class="n">input</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">request</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">header</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">header</span> <span class="o">!=</span> <span class="s">"</span><span class="se">\r</span><span class="s">"</span><span class="p">)</span>
+        <span class="p">{}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">stringsttream</span> <span class="n">body</span><span class="p">;</span>
+        <span class="n">body</span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;html&gt;"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"&lt;head&gt;&lt;title&gt;Beer List&lt;/title&gt;&lt;/head&gt;"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"&lt;body&gt;"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"&lt;h1&gt;Beer List&lt;/h1&gt;"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"&lt;ol&gt;"</span><span class="p">;</span>
+
+        <span class="c1">// Calling execute() suspends the current handler.
+</span>        <span class="c1">// Control is returned (unsuspends the handler) when the execute() function returns.
+</span>        <span class="c1">//
+</span>        <span class="c1">// The execute function returns when all the rows have been returned from the SQL
+</span>        <span class="c1">// DB. The lambda is executes once for each row that is ruturned this allowing us
+</span>        <span class="c1">// to build the response as a stream.
+</span>        <span class="n">listBeers</span><span class="p">.</span><span class="n">execute</span><span class="p">([</span><span class="o">&amp;</span><span class="n">body</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">age</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// This call to the MySQL server is also non blocking.
+</span>            <span class="c1">// If the call is going to block control is returned to ThorNisse framework
+</span>            <span class="c1">// Allowing another connection to be processed while the MySQL server finishes
+</span>            <span class="c1">// Its work.
+</span>            <span class="n">body</span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;li&gt;"</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">age</span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;/li&gt;"</span><span class="p">;</span>
+        <span class="p">});</span>
+        <span class="n">body</span> <span class="o">&lt;&lt;</span> <span class="s">"&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;"</span><span class="p">;</span>
+
+        <span class="n">OSocketStream</span>   <span class="n">output</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+        <span class="n">output</span> <span class="o">&lt;&lt;</span> <span class="s">"HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"Content-Length: "</span> <span class="o">&lt;&lt;</span> <span class="n">body</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
+                  <span class="o">&lt;&lt;</span> <span class="n">body</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre><pre class="highlight cpp tab-cpp--DeepDive"><code><span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">ThorSQL</span> <span class="n">library</span> <span class="k">for</span> <span class="n">details</span><span class="p">.</span>
+</code></pre>
+<p>A PIMPL proxy for the ThorSQL library.<br>
+There are no user usable classes in this package. All the classes are used internally by ThorSQL library. There usage is unlocked by using the prefix &quot;mysqlNB&quot; in the connection string.</p>
+
+<dl>
+<dt>NameSpace:</dt><dd>ThorsAnvil::Nisse::Core::SQL</dd>
+<dt>Headers:</dt><dd>ThorsNisseCoreSQL/</dd>
+</dl>
+<h1 id='protocol'>Protocol</h1><h2 id='simple'>Simple</h2>
+<p>A very simple protocol. These classes are used to test the functionality of Core::Service without the extra baggage of the HTTP protocol.
+<dl>
+<dt>NameSpace:</dt><dd>ThorsAnvil::Nisse::Protocol::Simple</dd>
+<dt>Headers:</dt><dd>ThorsNisseProtocolSimple/</dd>
+</dl></p>
+<h2 id='http'>HTTP</h2><pre class="highlight cpp tab-cpp--DeepDive"><code><span class="k">class</span> <span class="nc">Site</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">Site</span><span class="p">();</span>
+        <span class="n">Site</span><span class="p">(</span><span class="n">Site</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+        <span class="n">Site</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Site</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+        <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">Site</span><span class="o">&amp;</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+
+        <span class="kt">void</span> <span class="nf">get</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">path</span><span class="p">,</span> <span class="n">Action</span><span class="o">&amp;&amp;</span> <span class="n">action</span><span class="p">)</span>    <span class="p">{</span><span class="n">add</span><span class="p">(</span><span class="n">Method</span><span class="o">::</span><span class="n">Get</span><span class="p">,</span>    <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">action</span><span class="p">));}</span>
+        <span class="kt">void</span> <span class="nf">put</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">path</span><span class="p">,</span> <span class="n">Action</span><span class="o">&amp;&amp;</span> <span class="n">action</span><span class="p">)</span>    <span class="p">{</span><span class="n">add</span><span class="p">(</span><span class="n">Method</span><span class="o">::</span><span class="n">Put</span><span class="p">,</span>    <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">action</span><span class="p">));}</span>
+        <span class="kt">void</span> <span class="nf">del</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">path</span><span class="p">,</span> <span class="n">Action</span><span class="o">&amp;&amp;</span> <span class="n">action</span><span class="p">)</span>    <span class="p">{</span><span class="n">add</span><span class="p">(</span><span class="n">Method</span><span class="o">::</span><span class="n">Delete</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">action</span><span class="p">));}</span>
+        <span class="kt">void</span> <span class="nf">post</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">path</span><span class="p">,</span> <span class="n">Action</span><span class="o">&amp;&amp;</span> <span class="n">action</span><span class="p">)</span>   <span class="p">{</span><span class="n">add</span><span class="p">(</span><span class="n">Method</span><span class="o">::</span><span class="n">Post</span><span class="p">,</span>   <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">action</span><span class="p">));}</span>
+        <span class="kt">void</span> <span class="nf">all</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">path</span><span class="p">,</span> <span class="n">Action</span><span class="o">&amp;&amp;</span> <span class="n">action</span><span class="p">)</span>    <span class="p">{</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>              <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">action</span><span class="p">));}</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">Action</span><span class="o">&gt;</span> <span class="n">find</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">path</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Binder</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">Binder</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">setCustome404Action</span><span class="p">(</span><span class="n">Action</span><span class="o">&amp;&amp;</span> <span class="n">action</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="n">addSite</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">,</span> <span class="n">Site</span><span class="o">&amp;&amp;</span> <span class="n">site</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">remSite</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">);</span>
+
+        <span class="n">Action</span> <span class="n">find</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">path</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">DeveloperHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">Service</span><span class="o">::</span><span class="n">HandlerNonSuspendable</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">Socket</span><span class="o">::</span><span class="n">DataSocket</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">DeveloperHandler</span><span class="p">(</span><span class="n">Core</span><span class="o">::</span><span class="n">Service</span><span class="o">::</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">Socket</span><span class="o">::</span><span class="n">DataSocket</span><span class="o">&amp;&amp;</span> <span class="n">socket</span><span class="p">,</span> <span class="n">DynamicSiteLoader</span><span class="o">&amp;</span> <span class="n">loader</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">short</span> <span class="n">eventActivate</span><span class="p">(</span><span class="n">Core</span><span class="o">::</span><span class="n">Service</span><span class="o">::</span><span class="n">LibSocketId</span> <span class="n">sockId</span><span class="p">,</span> <span class="kt">short</span> <span class="n">eventType</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">DynamicSiteLoader</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">DynamicSiteLoader</span><span class="p">(</span><span class="n">Core</span><span class="o">::</span><span class="n">Service</span><span class="o">::</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">server</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span>      <span class="n">load</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">site</span><span class="p">,</span> <span class="kt">int</span> <span class="n">port</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">);</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">unload</span><span class="p">(</span><span class="kt">int</span> <span class="n">port</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">);</span>
+        <span class="kt">void</span>                       <span class="n">setMaxWaitingConnections</span><span class="p">(</span><span class="kt">int</span> <span class="n">max</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">ReadRequestHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">Core</span><span class="o">::</span><span class="n">Service</span><span class="o">::</span><span class="n">HandlerSuspendable</span><span class="o">&lt;</span><span class="n">Core</span><span class="o">::</span><span class="n">Socket</span><span class="o">::</span><span class="n">DataSocket</span><span class="o">&gt;</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">ReadRequestHandler</span><span class="p">(</span><span class="n">Core</span><span class="o">::</span><span class="n">Service</span><span class="o">::</span><span class="n">Server</span><span class="o">&amp;</span> <span class="n">parent</span><span class="p">,</span> <span class="n">Core</span><span class="o">::</span><span class="n">Socket</span><span class="o">::</span><span class="n">DataSocket</span><span class="o">&amp;&amp;</span> <span class="n">socket</span><span class="p">,</span> <span class="n">Binder</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">binder</span><span class="p">);</span>
+        <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">eventActivateNonBlocking</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+        <span class="kt">void</span> <span class="n">setFlusher</span><span class="p">(</span><span class="n">Response</span><span class="o">*</span> <span class="n">f</span><span class="p">){</span><span class="n">flusher</span> <span class="o">=</span> <span class="n">f</span><span class="p">;}</span>
+        <span class="kt">void</span> <span class="n">flushing</span><span class="p">()</span>             <span class="p">{</span><span class="k">if</span> <span class="p">(</span><span class="n">flusher</span><span class="p">){</span><span class="n">flusher</span><span class="o">-&gt;</span><span class="n">flushing</span><span class="p">();}}</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">HttpParserData</span>
+<span class="p">{</span>
+    <span class="n">HttpParserData</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">addCurrentHeader</span><span class="p">();</span>
+
+        <span class="n">Headers</span>                 <span class="n">headers</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>             <span class="n">currentHead</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>             <span class="n">currentValue</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>             <span class="n">uri</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="k">const</span><span class="o">*</span>             <span class="n">bodyBegin</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="k">const</span><span class="o">*</span>             <span class="n">bodyEnd</span><span class="p">;</span>
+        <span class="n">Method</span>                  <span class="n">method</span><span class="p">;</span>
+        <span class="kt">bool</span>                    <span class="n">messageComplete</span><span class="p">;</span>
+        <span class="kt">bool</span>                    <span class="n">gotValue</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">HttpScanner</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">HttpParserData</span>          <span class="n">data</span><span class="p">;</span>
+
+        <span class="n">HttpScanner</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">scan</span><span class="p">(</span><span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Route</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">Route</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">fullRoute</span><span class="p">);</span>
+        <span class="n">Route</span><span class="p">(</span><span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span>            <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+        <span class="n">Route</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+        <span class="n">Route</span><span class="p">(</span><span class="n">Route</span><span class="o">&amp;&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+
+        <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;=</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">struct</span> <span class="n">RouteTester</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="n">is_transparent</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="p">;</span>
+
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">rhs</span> <span class="o">&lt;=</span> <span class="n">lhs</span><span class="p">);}</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">lhs</span> <span class="o">&lt;</span> <span class="n">rhs</span><span class="p">;}</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">Route</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span>       <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">lhs</span> <span class="o">&lt;</span> <span class="n">rhs</span><span class="p">;}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Headers</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">typedef</span> <span class="n">ConstIterator</span> <span class="n">const_iterator</span><span class="p">;</span>
+        <span class="k">class</span> <span class="nc">Inserter</span>
+        <span class="p">{</span>
+            <span class="n">ValueStore</span><span class="o">&amp;</span>  <span class="n">valueStore</span><span class="p">;</span>
+            <span class="k">public</span><span class="o">:</span>
+                <span class="n">Inserter</span><span class="p">(</span><span class="n">ValueStore</span><span class="o">&amp;</span> <span class="n">valueStore</span><span class="p">);</span>
+                <span class="kt">void</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">value</span><span class="p">);</span>
+                <span class="kt">void</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">value</span><span class="p">);</span>
+        <span class="p">};</span>
+
+        <span class="n">ConstIterator</span> <span class="n">begin</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">cbegin</span><span class="p">(</span><span class="n">data</span><span class="p">);}</span>
+        <span class="n">ConstIterator</span> <span class="n">end</span><span class="p">()</span>   <span class="k">const</span> <span class="p">{</span><span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">cend</span><span class="p">(</span><span class="n">data</span><span class="p">);}</span>
+        <span class="n">Inserter</span> <span class="k">operator</span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">)</span>    <span class="p">{</span><span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">];}</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span>        <span class="n">getVersions</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">get</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">version</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">URI</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">original</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">normalized</span><span class="p">;</span>
+
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">schema</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">host</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">path</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">query</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">fragment</span><span class="p">;</span>
+        <span class="kt">short</span>       <span class="n">port</span><span class="p">;</span>
+
+        <span class="n">Headers</span>     <span class="n">queryParam</span><span class="p">;</span>
+
+        <span class="n">URI</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">hostAndPort</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span> <span class="n">pathAndQuery</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Request</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="k">const</span> <span class="n">Method</span>            <span class="n">method</span><span class="p">;</span>
+        <span class="k">const</span> <span class="n">URI</span>               <span class="n">uri</span><span class="p">;</span>
+        <span class="k">const</span> <span class="n">Headers</span><span class="o">&amp;</span>          <span class="n">headers</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="o">&amp;</span>           <span class="n">body</span><span class="p">;</span>
+
+        <span class="n">Request</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">,</span>
+                <span class="n">URI</span><span class="o">&amp;&amp;</span> <span class="n">uri</span><span class="p">,</span>
+                <span class="n">Headers</span><span class="o">&amp;</span> <span class="n">headers</span><span class="p">,</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">istream</span><span class="o">&amp;</span> <span class="n">body</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Response</span>
+<span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="kt">short</span>                   <span class="n">resultCode</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span>             <span class="n">resultMessage</span><span class="p">;</span>
+        <span class="n">Headers</span>                 <span class="n">headers</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span>           <span class="n">body</span><span class="p">;</span>
+
+        <span class="n">Response</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">body</span><span class="p">);</span>
+        <span class="n">Response</span><span class="p">(</span><span class="n">ReadRequestHandler</span><span class="o">&amp;</span> <span class="n">flusher</span><span class="p">,</span>
+                 <span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">socket</span><span class="p">,</span>
+                 <span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span> <span class="n">body</span><span class="p">,</span>
+                 <span class="kt">short</span> <span class="n">resultCode</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+                 <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">resultMessage</span> <span class="o">=</span> <span class="s">"OK"</span><span class="p">);</span>
+        <span class="o">~</span><span class="n">Response</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">flushing</span><span class="p">(</span><span class="kt">bool</span> <span class="n">allDone</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+<span class="p">};</span>
+
+</code></pre>
+<p>An implementation of the HTTP protocol
+<dl>
+<dt>NameSpace:</dt><dd>ThorsAnvil::Nisse::Protocol::HTTP</dd>
+<dt>Headers:</dt><dd>ThorsNisseProtocolHTTP/</dd>
+<dt>Binder.h</dt><dd></p>
+
+<ul>
+<li>class Site</li>
+<li>class Binder</li>
+</ul>
+
+<p></dd>
+<dt>DeveloperHandler.h</dt><dd></p>
+
+<ul>
+<li>class DeveloperHandler: public Core::Service::HandlerNonSuspendable</li>
+</ul>
+
+<p></dd>
+<dt>DynamicSiteLoader.h</dt><dd></p>
+
+<ul>
+<li>class DynamicSiteLoader</li>
+</ul>
+
+<p></dd>
+<dt>HTTPProtocol.h</dt><dd></p>
+
+<ul>
+<li>class ReadRequestHandler: public Core::Service::HandlerSuspendable</li>
+</ul>
+
+<p></dd>
+<dt>HttpScanner.h</dt><dd></p>
+
+<ul>
+<li>struct HttpParserData</li>
+<li>class HttpScanner</li>
+</ul>
+
+<p></dd>
+<dt>Route.h</dt><dd></p>
+
+<ul>
+<li>class Route</li>
+<li>struct RouteTester</li>
+</ul>
+
+<p></dd>
+<dt>Types.h</dt><dd></p>
+
+<ul>
+<li>class Headers</li>
+<li>class URI</li>
+<li>class Request</li>
+<li>class Response</li>
+</ul>
+
+<p></dd>
+</dl></p>
 <h1 id='examples'>Examples</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 <h2 id='addbeer'>AddBeer</h2>
@@ -294,6 +1015,10 @@
 
       </div>
       <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="cpp">cpp</a>
+                <a href="#" data-language-name="cpp--DeepDive">cpp--DeepDive</a>
+          </div>
       </div>
     </div>
   </body>
