@@ -202,7 +202,7 @@
       <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;cpp&quot;,&quot;cpp--DeepDive&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,6 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="cpp">cpp</a>
-              <a href="#" data-language-name="cpp--DeepDive">cpp--DeepDive</a>
-        </div>
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
@@ -233,6 +229,29 @@
                   </li>
                   <li>
                     <a href="#socket" class="toc-h2 toc-link" data-title="Core">Socket</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#basesocket" class="toc-h3 toc-link" data-title="Core">BaseSocket</a>
+                          </li>
+                          <li>
+                            <a href="#datasocket" class="toc-h3 toc-link" data-title="Core">DataSocket</a>
+                          </li>
+                          <li>
+                            <a href="#connectionsocket" class="toc-h3 toc-link" data-title="Core">ConnectionSocket</a>
+                          </li>
+                          <li>
+                            <a href="#serversocket" class="toc-h3 toc-link" data-title="Core">ServerSocket</a>
+                          </li>
+                          <li>
+                            <a href="#socketstreambuffer" class="toc-h3 toc-link" data-title="Core">SocketStreamBuffer</a>
+                          </li>
+                          <li>
+                            <a href="#isocketstream" class="toc-h3 toc-link" data-title="Core">ISocketStream</a>
+                          </li>
+                          <li>
+                            <a href="#osocketstream" class="toc-h3 toc-link" data-title="Core">OSocketStream</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#service" class="toc-h2 toc-link" data-title="Core">Service</a>
@@ -375,14 +394,20 @@ It is based on Node.js and its family of associated packages. ThorsNisse uses tr
 
 <p></dd>
 </dl></p>
-<h2 id='socket'>Socket</h2><pre class="highlight cpp tab-cpp"><code><span class="c1">// Server Side
+<h2 id='socket'>Socket</h2><pre class="highlight shell"><code> &gt; g++ Socket.cpp -o Socket -I<span class="k">${</span><span class="nv">THOR_ROOT</span><span class="k">}</span>/include -L<span class="k">${</span><span class="nv">THOR_ROOT</span><span class="k">}</span>/lib -lThorsExpress17
+</code></pre><pre class="highlight cpp tab-cpp"><code><span class="c1">// Server Side
+</span><span class="cp">#include "ThorsNisseCoreSocket/Socket.h"
+#include "ThorsNisseCoreSocket/SocketStream.h"
+#include &lt;string&gt;
 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">ServerSocket</span>    <span class="n">server</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
+    <span class="k">namespace</span> <span class="n">Sock</span> <span class="o">=</span> <span class="n">ThorsAnvil</span><span class="o">::</span><span class="n">Nisse</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Socket</span><span class="p">;</span>
+
+    <span class="n">Sock</span><span class="o">::</span><span class="n">ServerSocket</span>    <span class="n">server</span><span class="p">(</span><span class="mi">8080</span><span class="p">);</span>
     <span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">DataSocket</span>      <span class="n">connection</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">accept</span><span class="p">();</span>
-        <span class="n">ISocketStream</span>   <span class="n">input</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
+        <span class="n">Sock</span><span class="o">::</span><span class="n">DataSocket</span>    <span class="n">connection</span> <span class="o">=</span> <span class="n">server</span><span class="p">.</span><span class="n">accept</span><span class="p">();</span>
+        <span class="n">Sock</span><span class="o">::</span><span class="n">ISocketStream</span> <span class="n">input</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
 
         <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">request</span><span class="p">;</span>
         <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">request</span><span class="p">);</span>
@@ -393,118 +418,19 @@ It is based on Node.js and its family of associated packages. ThorsNisse uses tr
 
         <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">message</span><span class="p">;</span>
         <span class="n">std</span><span class="o">::</span><span class="n">string</span>     <span class="n">line</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">:</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span>
         <span class="p">{</span>
             <span class="n">message</span> <span class="o">+=</span> <span class="n">line</span><span class="p">;</span>
             <span class="n">message</span> <span class="o">+=</span> <span class="s">"&lt;br&gt;"</span><span class="p">;</span>
         <span class="p">}</span>
 
-        <span class="n">OSocketStream</span>   <span class="n">output</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
+        <span class="n">Sock</span><span class="o">::</span><span class="n">OSocketStream</span> <span class="n">output</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
         <span class="n">output</span> <span class="o">&lt;&lt;</span> <span class="s">"HTTP/1.1 200 OK</span><span class="se">\r\n</span><span class="s">"</span>
                   <span class="s">"Content-Length: "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">11</span> <span class="o">+</span> <span class="n">message</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
                   <span class="s">"</span><span class="se">\r\n</span><span class="s">"</span>
                   <span class="s">"It Worked: "</span> <span class="o">&lt;&lt;</span> <span class="n">message</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><pre class="highlight cpp tab-cpp--DeepDive"><code><span class="c1">// Socket.h
-</span><span class="k">class</span> <span class="nc">BaseSocket</span>
-<span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="k">virtual</span> <span class="o">~</span><span class="n">BaseSocket</span><span class="p">();</span>
-
-        <span class="c1">// Moveable but not Copyable
-</span>        <span class="n">BaseSocket</span><span class="p">(</span><span class="n">BaseSocket</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span>               <span class="k">noexcept</span><span class="p">;</span>
-        <span class="n">BaseSocket</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">BaseSocket</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span>    <span class="k">noexcept</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="n">swap</span><span class="p">(</span><span class="n">BaseSocket</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span>                <span class="k">noexcept</span><span class="p">;</span>
-
-        <span class="kt">void</span> <span class="n">close</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="cm">/*
- * DataSocket:  Defines a socket that you can read/write too.
- *              This class should not be directry created. You can get an object
- *              of this data by creating a `ConnectSocket` or calling accept on
- *              ServerScoket (See below).
- */</span>
-<span class="k">class</span> <span class="nc">DataSocket</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseSocket</span>
-<span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">getMessageData</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">alreadyGot</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">putMessageData</span><span class="p">(</span><span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">alreadyPut</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="kt">void</span>        <span class="n">putMessageClose</span><span class="p">();</span>
-<span class="p">};</span>
-
-<span class="cm">/*
- * ConnectSocket:   Creates a connection to server.
- */</span>
-<span class="k">class</span> <span class="nc">ConnectSocket</span><span class="o">:</span> <span class="k">public</span> <span class="n">DataSocket</span>
-<span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="n">ConnectSocket</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">host</span><span class="p">,</span> <span class="kt">int</span> <span class="n">port</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="cm">/*
- * ServerSocket:    Creates a ServerSocket that will accept incomming requests.
- *
- *                  A blocking call to accept will return a DataSocket for
- *                  an external connection that has been established.
- *
- *                  Non blocking calls should onlt be made if you know there
- *                  is a connection waiting to be made.
- */</span>
-<span class="k">class</span> <span class="nc">ServerSocket</span><span class="o">:</span> <span class="k">public</span> <span class="n">BaseSocket</span>
-<span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">maxConnectionBacklog</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-        <span class="n">ServerSocket</span><span class="p">(</span><span class="kt">int</span> <span class="n">port</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">blocking</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxWaitingConnections</span> <span class="o">=</span> <span class="n">maxConnectionBacklog</span><span class="p">);</span>
-
-        <span class="n">DataSocket</span> <span class="n">accept</span><span class="p">(</span><span class="kt">bool</span> <span class="n">blocking</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="cm">/*
- * SocketStreamBuffer:  A stream buffer that is used by ISocketStream and OSocketStream
- */</span>
-<span class="k">class</span> <span class="nc">SocketStreamBuffer</span><span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">streambuf</span>
-<span class="p">{</span>
-    <span class="k">public</span><span class="o">:</span>
-        <span class="k">virtual</span> <span class="o">~</span><span class="n">SocketStreamBuffer</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
-        <span class="n">SocketStreamBuffer</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
-                           <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">,</span>
-                           <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;&amp;</span> <span class="n">bufData</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">4000</span><span class="p">),</span>
-                           <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentStart</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentEnd</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">);</span>
-        <span class="n">SocketStreamBuffer</span><span class="p">(</span><span class="n">SocketStreamBuffer</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="cm">/*
- * ISocketStream:       An implementation of std::istream that uses a DataSocket
- */</span>
-<span class="k">class</span> <span class="nc">ISocketStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">istream</span>
-<span class="p">{</span>
-    <span class="n">SocketStreamBuffer</span> <span class="n">buffer</span><span class="p">;</span>
-
-    <span class="k">public</span><span class="o">:</span>
-        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
-                      <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">,</span>
-                      <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;&amp;</span> <span class="n">bufData</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentStart</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="n">currentEnd</span><span class="p">);</span>
-        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
-                      <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">);</span>
-        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">);</span>
-        <span class="n">ISocketStream</span><span class="p">(</span><span class="n">ISocketStream</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="cm">/*
- * ISocketStream:       An implementation of std::ostream that uses a DataSocket
- */</span>
-<span class="k">class</span> <span class="nc">OSocketStream</span><span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span>
-<span class="p">{</span>
-    <span class="n">SocketStreamBuffer</span> <span class="n">buffer</span><span class="p">;</span>
-
-    <span class="k">public</span><span class="o">:</span>
-        <span class="n">OSocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">,</span>
-                      <span class="n">Notifier</span> <span class="n">noAvailableData</span><span class="p">,</span> <span class="n">Notifier</span> <span class="n">flushing</span><span class="p">);</span>
-        <span class="n">OSocketStream</span><span class="p">(</span><span class="n">DataSocket</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">);</span>
-        <span class="n">OSocketStream</span><span class="p">(</span><span class="n">OSocketStream</span><span class="o">&amp;&amp;</span> <span class="n">move</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
-<span class="p">};</span>
 </code></pre>
 <p>A simple wrapper around BSD sockets so they are easy to use in C++.
 <dl>
@@ -530,6 +456,269 @@ It is based on Node.js and its family of associated packages. ThorsNisse uses tr
 
 <p></dd>
 </dl></p>
+<h3 id='basesocket'>BaseSocket</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/Socket.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">BaseSocket</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">Base of all the socket classes.<br>
+            This class should not be directly created.<br>
+            All socket classes are movable but not copyable.</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">BaseSocket(BaseSocket&&)</div><div class="methodMark">noexcept</div></div>
+            <div class="classRow"><div class="methodRet">BaseSocket&</div><div class="methodName">operator=(BaseSocket&&)</div><div class="methodMark">noexcept</div></div>
+            <div class="classRow"><div class="methodRet">void</div><div class="methodName">swap(BaseSocket&)</div><div class="methodMark">noexcept</div></div>
+            <div class="classRow"><div class="methodRet">void</div><div class="methodName">close()</div><div class="methodMark"></div></div>
+        </div>
+    </div>
+</div>
+<h3 id='datasocket'>DataSocket</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/Socket.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">DataSocket</div></div>
+            <div class="classRow"><div class="classItem">Parent:   </div><div class="classValue">BaseSocket</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">
+            Data sockets define the read/write interface to a socket.<br>
+            This class should not be directly created
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="methodRet">std::pair&lt;bool, std::size_t&gt;</div><div class="methodName">getMessageData(char* buffer, std::size_t size, std::size_t alreadyGot = 0)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet">std::pair&lt;bool, std::size_t&gt;</div><div class="methodName">putMessageData(char const* buffer, std::size_t size, std::size_t alreadyPut = 0)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet">void</div><div class="methodName">putMessageClose()</div><div class="methodMark"></div></div>
+        </div>
+    </div>
+</div>
+<h4 id='datasocket-getmessagedata'>DataSocket::getMessageData</h4>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">getMessageData()</div></div>
+            <div class="classRow"><div class="classDesc">
+            Reads data from a sokcet into a buffer.<br>
+            If the stream is blocking will not return until the requested amount of data has been read or there is no more data to read.<br>
+            If the stream in non blocking will return if the read operation would block.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Return Value</div></div>
+            <div class="classRow"><div class="classDesc">
+            This method returns a pair: <code>std::pair&lt;bool, std::size_t&gt;</code><br>
+            The first member `bool` indicates if more data can potentially be read from the stream. If the socket was cut or the EOF reached then this value will be false<br>
+            The second member `std::size_t` indicates exactly how many bytes were read from this stream.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Parameters</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">buffer</div><div class="classValue">The buffer data will be read into.</div></div>
+            <div class="classRow"><div class="classItem">size</div><div class="classValue">The size of the buffer.</div></div>
+            <div class="classRow"><div class="classItem">alreadyGot</div><div class="classValue">Offset into buffer (and amount size is reduced by) as this amount was read on a previous call).</div></div>
+        </div>
+    </div>
+</div>
+<h4 id='datasocket-putmessagedata'>DataSocket::putMessageData</h4>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">putMessageData()</div></div>
+            <div class="classRow"><div class="classDesc">
+            Writes data from a buffer to a sokcet.<br>
+            If the stream is blocking will not return until the requested amount of data has been written or the socket was closed to writting.<br>
+            If the stream in non blocking will return if the write operation would block.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Return Value</div></div>
+            <div class="classRow"><div class="classDesc">
+            This method returns a pair: <code>std::pair&lt;bool, std::size_t&gt;</code><br>
+            The first member `bool` indicates if more data can potentially be written to the stream. If the socket was cut or closed then this value will be false<br>
+            The second member `std::size_t` indicates exactly how many bytes were written to this stream.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Parameters</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">buffer</div><div class="classValue">The buffer data will be written from.</div></div>
+            <div class="classRow"><div class="classItem">size</div><div class="classValue">The size of the buffer.</div></div>
+            <div class="classRow"><div class="classItem">alreadyPut</div><div class="classValue">Offset into buffer (and amount size is reduced by) as this amount was written on a previous call).</div></div>
+        </div>
+    </div>
+</div>
+<h4 id='datasocket-putmessageclose'>DataSocket::putMessageClose</h4>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">putMessageClose()</div></div>
+            <div class="classRow"><div class="classDesc">
+            closes the write end of the socket and flushes (write) data.
+            </div></div>
+        </div>
+    </div>
+</div>
+<h3 id='connectionsocket'>ConnectionSocket</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/Socket.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">ConnectionSocket</div></div>
+            <div class="classRow"><div class="classItem">Parent:   </div><div class="classValue">DataSocket</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">
+            Creates a connection to <code>host</code> on <code>port</code>.<br>
+            Note this class inherits from <code>DataSocket</code> so once created you can read/write to the socket.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">ConnectionSocket(std::string const& host, int port)</div><div class="methodMark"></div></div>
+        </div>
+    </div>
+</div>
+<h3 id='serversocket'>ServerSocket</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/Socket.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">ServerSocket</div></div>
+            <div class="classRow"><div class="classItem">Parent:   </div><div class="classValue">BaseSocket</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">ServerSocket(int port, bool blocking, int maxWaitConnections = ServerSocket::maxConnectionBacklog)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet">DataSocket</div><div class="methodName">accept(bool blocking)</div><div class="methodMark"></div></div>
+        </div>
+    </div>
+</div>
+<h4 id='serversocket-accept'>ServerSocket::accept</h4>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">accept()</div></div>
+            <div class="classRow"><div class="classDesc">
+            "Accept" a waiting connection request on the port and creates a two way socket for communication on another port.<br>
+            If this is a non blocking socket and there is no waiting connection an exception is thrown.<br>
+            If this is a blocking socket wait for a connection<br>
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Return Value</div></div>
+            <div class="classRow"><div class="classDesc">
+            A <code>DataSocket</code> is returned so data can be exchange across the socket.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Parameters</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">blocking</div><div class="classValue">Passed to the constructor of the <code>DataSocket</code> that is returned.</div></div>
+        </div>
+    </div>
+</div>
+<h3 id='socketstreambuffer'>SocketStreamBuffer</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/SocketStream.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">SocketStreamBuffer</div></div>
+            <div class="classRow"><div class="classItem">Parent:   </div><div class="classValue">std::streambug</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">
+            This is a wrapper class for a <code>DataSocket</code> that allows the socket to be treated like <code>std::streambuf</code>.<br>
+            This class overrides just enough virtual functions to make the <code>ISocketStream</code> and <code>OSocketStream</code> useful.<br>
+            This class provides no public API and is designed to be used solely with the following stream objects.
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+    </div>
+</div>
+<h3 id='isocketstream'>ISocketStream</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/SocketStream.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">ISocketStream</div></div>
+            <div class="classRow"><div class="classItem">Parent:   </div><div class="classValue">std::istream</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">
+            An implementation of <code>std::istream</code> that uses <code>SocketStreamBuffer</code> as the buffer.<br>
+            The <code>Notofer</code> is a primitive event callback mechanism.<br>
+            A blocking read call to these streams calls the <code>Notifier noData</code>. This is used by the <a href="#Server">Server</a> infastructure to yield control back to the main event loop.<br>
+            <code>using Notifier = std::function<void()>;</code>
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">ISocketStream(DataSocket& stream, Notifier noData, Notfier flush)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">ISocketStream(DataSocket& stream)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">ISocketStream(ISocketStream&& move)</div><div class="methodMark"></div></div>
+        </div>
+    </div>
+</div>
+<h3 id='osocketstream'>OSocketStream</h3>
+<div class="classTable">
+    <div class="classLayout">
+        <div class="classBlock">
+            <div class="classRow"><div class="classItem">Header:   </div><div class="classValue">ThorsNisseCoreSocket/SocketStream.h</div></div>
+            <div class="classRow"><div class="classItem">NameSpace:</div><div class="classValue">ThorsAnvil::Nisse::Core::Socket</div></div>
+            <div class="classRow"><div class="classItem">Class:    </div><div class="classValue">OSocketStream</div></div>
+            <div class="classRow"><div class="classItem">Parent:   </div><div class="classValue">std::istream</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classDesc">
+            An implementation of <code>std::ostream</code> that uses <code>SocketStreamBuffer</code> as the buffer.<br>
+            The <code>Notofer</code> is a primitive event callback mechanism.
+            A blocking write call to these streams calls the <code>Notifier noData</code>. This is used by the <a href="#Server">Server</a> infastructure to yield control back to the main event loop.<br>
+            <code>using Notifier = std::function<void()>;</code>
+            </div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="classSect">Public Members:</div></div>
+        </div>
+        <div class="classBlock">
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">OSocketStream(DataSocket& stream, Notifier noData, Notfier flush)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">OSocketStream(DataSocket& stream)</div><div class="methodMark"></div></div>
+            <div class="classRow"><div class="methodRet"></div><div class="methodName">OSocketStream(OSocketStream&& move)</div><div class="methodMark"></div></div>
+        </div>
+    </div>
+</div>
 <h2 id='service'>Service</h2><pre class="highlight cpp tab-cpp"><code><span class="k">class</span> <span class="nc">MyHandler</span><span class="o">:</span> <span class="k">public</span> <span class="n">HandlerSuspendable</span><span class="o">&lt;</span><span class="n">DataSocket</span><span class="o">&gt;</span>
 <span class="p">{</span>
     <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">eventActivateNonBlocking</span><span class="p">()</span>
@@ -1015,10 +1204,6 @@ There are no user usable classes in this package. All the classes are used inter
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="cpp">cpp</a>
-                <a href="#" data-language-name="cpp--DeepDive">cpp--DeepDive</a>
-          </div>
       </div>
     </div>
   </body>
