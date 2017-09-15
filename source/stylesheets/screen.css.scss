@@ -8,8 +8,8 @@ div.classTable {
 }
     div.classLayout {
       margin-left:  $main-padding;
-      border:       1px solid #E6E6E6;
       margin-right: 5px;
+      border:       1px solid #E6E6E6;
     }
         div.classBlock {
           display:      table;
@@ -37,7 +37,7 @@ div.classTable {
                   max-width:    75%;
                 }
                 div.classDesc {
-                  margin-left: 25px;
+                  padding-left: 25px;
                   width:        100%;
                 }
                 div.classSect {
@@ -403,7 +403,10 @@ html, body {
   }
 
   // the div is the tocify hidden div for placeholding stuff
-  &>h1, &>h2, &>h3, &>div {
+  &>.allowFloat {
+    clear:none;
+  }
+  &>h1, &>h2, &>h3, &>h4, &>div {
     clear:both;
   }
 
