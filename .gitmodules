@@ -1,0 +1,3 @@
+[submodule "docSource/themes/landscape"]
+	path = docSource/themes/landscape
+	url = https://github.com/Loki-Astari/andvari-theme-landscape.git
